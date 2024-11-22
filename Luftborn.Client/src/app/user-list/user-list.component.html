@@ -1,0 +1,30 @@
+<!-- src/app/user-list/user-list.component.html -->
+
+<div class="container mt-4">
+  <a routerLink="/create" class="btn btn-success">Create User</a>
+  <hr/>
+  <h2>User List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn btn-danger mr-3" (click)="deleteUser(user.id)">Delete</button>
+          <a [routerLink]="['/edit', user.id]" class="btn btn-primary">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
